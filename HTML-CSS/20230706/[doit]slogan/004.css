@@ -1,0 +1,40 @@
+
+* {
+    background-color: rgb(220, 221, 226);
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'KBO-Dia-Gothic_bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 50px;
+    color: rgb(26, 25, 25);
+    font-family: 'KBO-Dia-Gothic_bold';
+    
+}
+
+@font-face {
+    font-family: 'ChosunGs';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h2 {
+    font-family: 'ChosunGs', sans-serif;
+    font-weight: lighter;
+    text-shadow: 1px 1px 2px gray;
+}
+
+.img {
+
+    width: 300px;
+    height: 300px;
+    background-position:10% 30%;
+    margin-top: 150px;
+}
