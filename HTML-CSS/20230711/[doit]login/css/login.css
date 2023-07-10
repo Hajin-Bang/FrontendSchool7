@@ -18,9 +18,10 @@ a {
 }
 
 body{
+    /* 완성본과 비교 */
     /* background-image: url(../img/log-in.png);
     background-size: 350px 140px;
-    background-repeat: no-repeat; */
+    background-repeat: no-repeat; */ 
     font-family: 'SpoqaHanSansNeo';
 }
 
@@ -55,7 +56,7 @@ body{
     color: white;
     border-radius: 4px;
     margin: 16px 0;
-    /* 위니브로그인 가운데정렬 */
+    /* 위니브 로그인 가운데정렬 */
     display: flex; 
     justify-content: center;
     align-content: center;
