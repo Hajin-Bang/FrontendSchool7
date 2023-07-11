@@ -66,7 +66,8 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-height: 1.6;
-  height: calc(1em * 1.6 * 2);
+  height: calc(14px * 1.6 * 2);
+  /* 혹시 글자가 잘린다면 1em * 1.6 * 2 로 해보기 (브라우저별 차이가 있을 수 있다)  */
 }
 
 .card-ui .read {
