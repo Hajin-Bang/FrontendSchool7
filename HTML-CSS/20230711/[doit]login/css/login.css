@@ -1,0 +1,10 @@
+.box {
+    background-image: url("../img/log-in-area.png");
+    background-size: 350px 140px ;
+    background-repeat: no-repeat;
+    width: 350px;
+    height: 140px;
+    border: 1px solid #DBDBDB;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
