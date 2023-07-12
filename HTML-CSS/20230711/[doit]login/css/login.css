@@ -1,10 +1,98 @@
-.box {
-    background-image: url("../img/log-in-area.png");
-    background-size: 350px 140px ;
-    background-repeat: no-repeat;
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff')
+      format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* 초기화 */
+body,
+p
+ {
+    margin: 0;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body{
+    /* background-image: url(../img/log-in.png);
+    background-size: 350px 140px;
+    background-repeat: no-repeat; */
+    font-family: 'SpoqaHanSansNeo';
+}
+
+
+/* h1태그 숨김처리 (스니펫 설정) */
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+/* 전체 박스 설정 */
+.login-wrap {
     width: 350px;
     height: 140px;
     border: 1px solid #DBDBDB;
     border-radius: 5px;
     box-sizing: border-box;
+    font-size: 12px;
+    /* 모든 폰트 사이즈가 동일해서 다른 곳에는 적용하지 않아도 됨 */
+    padding: 18px 15px;
 }
+
+
+.btn-login {
+    background-color: #711bff;
+    color: white;
+    border-radius: 4px;
+    margin: 16px 0;
+    /* 위니브로그인 가운데정렬 */
+    display: flex; 
+    justify-content: center;
+    align-content: center;
+}
+
+/* 위니브 크기 설정 */
+.btn-login img {
+    width: 64px;
+    margin-right: 3px;
+}
+
+/* 아이디, 비밀번호찾기, 회원가입 */
+.login-link {
+    color: #767676;
+}
+
+.login-link img {
+    width: 16px;
+    height: 16px;
+    /* img태그는 인라인 요소이기 때문에 세로 정렬이 글자의 baseline을 따름 
+        따라서 가운데 정렬을 위해 아래와 같이 초기값을 넣어줌 */
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+.login-link span {
+    margin: 0 2px;
+}
+
+/* 1) flex를 이용한 방법 */
+.login-link {
+    display: flex;
+    /* 아이디찾기와 회원가입이 양 옆으로 찢어지게 만듦 */
+    justify-content: space-between;
+}
+
+/* 2) float를 이용한 방법 */
+/* .login-link a:last-child {
+    float:right;
+} */
