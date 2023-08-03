@@ -15,6 +15,7 @@ let nickName = "licat";
 
 console.log(firstName ?? nickName)
 console.log(firstName ?? lastName ?? nickName)
+//** 두 값이 true면 첫번째 true값을 반환
 console.log(firstName || nickName)
 
 let a = null;
@@ -25,6 +26,7 @@ console.log(a ?? b ?? c)
 let height = 0;
 console.log(height ?? 100) // 0이 null인가요? 아니니까 0을 출력합니다. nullish 입장에서는 0도 value입니다.
 console.log(height || 100) // 0을 만났을 때 뒤를 봐야 하나요?
+
 
 let height;
 console.log(height ?? 100)
