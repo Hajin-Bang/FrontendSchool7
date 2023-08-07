@@ -1,63 +1,71 @@
 // forEach(콜백함수)
 let arr = [10, 20, 30, 40, 50]
-arr.forEach((value, index, array) => {
+arr.forEach(value, index, array) => {
     console.log(value, index, array)
-})
+}
 
-// 문제1. forEach를 사용해서 배열의 모든 요소를 더하는 코드를 작성하세요.
+// 주의사항
+// forEach는 return을 사용할 수 없다
+// forEach는 break, 
+
+// 문제1. forEach를 사용해서 배열의 모든 요소를 더하는 코드를 작성하라
 let arr = [10, 20, 30, 40, 50]
 let sum = 0;
-arr.forEach(v => {
-    sum += v
+arr.forEach(v => {   //v: 배열의 값을 나타냄
+    sum += v 
 })
 console.log(sum)
 
-// 문제2. forEach를 사용해서 배열의 모든 요소를 더하는 코드를 작성하세요.
+
+// 문제2. forEach를 사용해서 배열의 모든 요소를 더하는 코드를 작성하라
 let arr = [10, '20', 30, '40', 50]
 let sum = 0;
 arr.forEach(v => {
-    sum += parseInt(v)
+    sum += parseInt(v) 
 })
 console.log(sum)
 
-// 문제2. forEach를 사용해서 짝수 인덱스의 값을 모두 더하세요.
+// 문제3. forEach를 사용해서 짝수 인덱스의 값을 더하는 코드를 작성하라
 // 풀이1
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let arr = [1, 2, 3, 4, 5, , 7, 8, 9, 10]
 let sum = 0;
-arr.forEach((v, i) => {
+arr.forEach((v, i) => {  // v: value , i: index
     if (i % 2 === 0) {
-        sum += v
+        sum += v 
     }
 })
 console.log(sum)
 
+
 // 풀이2
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let arr = [1, 2, 3, 4, 5, , 7, 8, 9, 10]
 let sum = 0;
 arr.forEach((v, i) => {
-    i % 2 === 0 ? sum += v : null
+    i % 2 === 0 ? sum +=v : null  //null : 만약 아니면 아무것도 하지 않는다
 })
 console.log(sum)
 
-// Array(100).fill(0)와 같은 코드 대신 뒤에서 배울 map을 더 많이 사용합니다.
-// 문제3. 1부터 100까지의 숫자를 다 더해주세요.
-Array(100).fill(0).forEach((v, i) => {
-    console.log(i + 1)
+
+// 문제 3. 1부터 100까지 숫자를 다 더하라
+// 여기서는 썼지만 사실 Array(100).fill(0)는 실무에서 잘 사용하지 않음 
+// 뒤에서 배울 map을 더 사용함
+Array(100).fill(0).forEach((v, i) => { 
+    // fill(0)로 모든 값을 0으로 채움움
+    // 첫번째 들어가는 값 0,0 두번째 0,1
+    console.log(i+1)
 })
 
 let sum = 0;
-Array(100).fill(0).forEach((v, i) => {
-    sum += i + 1
+Array(100).fill(0).forEach((v,i) => {
+    sum += i+1
 })
-sum // 5050, 수학 수식으로 계산되는 코드는 이렇게 순회를 돌면서 풀지 않으셔도 됩니다.
+sum // 이 코드는 좋은 코드가 아니다 (순회를 너무 많이 돌기 때문)
 
-// let n = 100
-// n * (n + 1) / 2
+let n=100
+n*(n+1) / 2
 
 
-// 풀이4
-// 난이도가 너무 어려웠습니다. 이 문제는 머릿속에서 당분간 잊어주셔도 좋습니다.
-// https://school.programmers.co.kr/learn/courses/30/lessons/120835
+//school.programmers.co.kr/learn/courses/30/lessons/120835
 let userInput = [3, 76, 24]
 let sortValue = userInput.sort((a, b) => b - a)
 
@@ -146,6 +154,10 @@ output
 
 /////////////////////////////
 
+
+
+
+
 // 주의사항
 // forEach는 return을 사용할 수 없습니다.
 [1, 2, 3].forEach(v => {
@@ -179,3 +191,5 @@ output
 document.querySelectorAll('div').forEach(v => {
     console.log(v)
 })
+
+
