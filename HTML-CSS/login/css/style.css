@@ -129,7 +129,6 @@ h2 {
 
 .login-form input:hover {
   border: 2px solid #F4492E;
-  gap: 0;
 }
 
 .login-form input:hover+span {
@@ -160,7 +159,6 @@ h2 {
   color: #767676;
   font-size: 16px;
   font-weight: 500;
-
   margin-left: 30px;
 }
 
