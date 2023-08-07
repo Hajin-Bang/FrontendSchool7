@@ -37,11 +37,14 @@ isNaN(value[1]) // 2, false
 isNaN(value[2]) // o, true
 // ...생략...
 
+<<<<<<< HEAD
 
 ///////////////////// *** 
 // isNaN()은 인자를 NUMBER로 변환한 뒤, NaN이면 true를 리턴 
 // Number.isNaN()은 인자로 들어온 값이 NaN이면 true를 리턴
 
+=======
+>>>>>>> 13605aa52f7a05959fbf81a05c858a695aa11a55
 // 문제는 다 더하는 것으로 고치겠습니다. 정렬을 우리가 안배웠기 때문입니다.
 let value = "p2o4"
 let sum = 0
