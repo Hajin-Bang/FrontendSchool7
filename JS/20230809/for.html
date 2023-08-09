@@ -5,21 +5,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
     <script>
         const cars = ["BMW", "Volvo", "Saab", "Ford", "Flat", "Audi"];
-        let text = '';
+
+        let text = "";
+
         text += '<section><h2>' + cars[0] + '</h2></section>'
         text += '<section><h2>' + cars[1] + '</h2></section>'
         text += '<section><h2>' + cars[2] + '</h2></section>'
         text += '<section><h2>' + cars[3] + '</h2></section>'
         text += '<section><h2>' + cars[4] + '</h2></section>'
 
-        console.log(text);
+        console.log(text)
+        document.body.innerHTML = text
+        // HTML코드를 포함해서 화면에 출력하기
+        // innerHTML: 요소 내에 있는 HTML과 XML 모두를 의미
+        // document.write(text)
     </script>
+
 </body>
 
 </html>
