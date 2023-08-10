@@ -5,11 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
     <script>
+        //foreach 
+        student.forEach(function () {
+
+        });
+
         const studentList = [
             {
                 id: 1, name: '원범', score: 'great'
@@ -23,13 +28,17 @@
             {
                 id: 4, name: '재현', score: 'too cool for school'
             }
-        ];
-        // studentList.forEach(function (item) {
-        //     console.log(item['name']);
-        // });
+        ]
 
-        const arr = studentList.map(function (item) {
-            return '💖' + item.score + '💖';
+        //foreach문을 이용해서 name값만 콘솔에 출력하라
+        studentList.forEach(function (item) {
+            console.log(item['name'])
+        });
+
+        //다음 배열에서 score 의 값들만 모아 새로운 배열로 반환해봅시다! 이때 score 값에 하트💖를 추가합니다.
+        const newStudentList = [];
+        studentList.forEach(function (item) {
+            newStudentList.push(item['score'] + '💖')
         });
     </script>
 </body>

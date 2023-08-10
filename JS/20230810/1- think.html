@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3]
+        let arr2 = arr
+
+        arr === [1, 2, 3] //의 결과는? 
+        //False : 값은 똑같으나, 다른 배열이라고 봐야한다 (메모리 주소가 다름)
+        arr === arr2
+        //True : 같은 값이 아닌 같은 주소값을 가지도록 지정해준 것이다
+        // ** 배열은 주소값을 가지고, 값이 같아도 "주소값"을 비교한다 ((객체타입))
+
+
+        let a = 1
+        let b = 1
+
+        a === b
+        //원시타입은 주소값이 아닌 "값 자체"를 비교한다
+    </script>
+</body>
+
+</html>

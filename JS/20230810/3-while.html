@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        let num = 0;
+
+        while (num < 11) {
+            document.write(num, '<br>');
+            num += 1;
+        }
+
+
+        //do while
+        //반복문이 최소한 한번은 실행되어야할 때 사용
+        //do의 내용을 한 번 실행한 다음, 조건문을 보고 반복할지말지 결정한다
+        let input;
+
+        do {
+            input = prompt("숫자를 입력하세요.");
+        } while (isNaN(input));
+
+        console.log("입력한 숫자는 " + input + "입니다.");
+
+
+        //
+        let num = 0;
+        while (num < 11) {
+            num++;
+            document.write(num, '<br>');
+            if (num > 5) {
+                break;
+            }
+        }
+
+        // break로 빠져나오기
+        let i = 0;
+        while (i < 100) {
+            i++;
+            if (i === 14) {
+                console.log(i + '살 부터 중학생이 됩니다.');
+                break;
+            }
+        }
+        console.log('중학교 입학을 축하합니다');
+
+        //continue로 반복 한 번 건너뛰기 
+        for (let i = 0; i < 20; i++) {
+            if (i < 13) continue; //i가 13이 되기 전까지는 continue가 적용돼서 실행이 안된다
+            console.log(i + '살은 청소년입니다.');
+        }
+
+    </script>
+</body>
+
+</html>

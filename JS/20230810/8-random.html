@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        Math.random(10); //0~0.99999999... 사이의 실수
+
+        Math.random() * 10 // 0 ~ 9.9999999999...
+        Math.random() * 10 + 2 // 2 ~11.999999999...
+        Math.random() * 8 + 2 // 2 ~  9.9999999....
+        parseInt(Math.random() * 8 + 2) // 2 ~ 9.9999... 사이의 정수
+
+
+
+        //로또 번호 만들기 (1~45 중에 중복 없이 6개를 뽑도록)
+        function lottoGenerator() {
+            const lottArr = [];
+
+            while (lottArr.length < 6) {
+                const result = parseInt(Math.random() * 45 + 1) // 1 ~ 45.999999
+
+                //중복된 값을 가지지 않기 위해 안에 이미 같은 숫자가 있는지 확인함
+                if (!lottArr.includes(result)) { //배열 안에 값이 포함되었는지? 
+                    //lottArr.includes()가 참일 때 push 하면 안된다
+                    //따라서 !를 붙여 없는 것이 true가 되도록
+                    lottArr.push(result);
+                }
+            }
+            return lottArr;
+        }
+
+        console.log(lottoGenerator());
+    </script>
+</body>
+
+</html>
