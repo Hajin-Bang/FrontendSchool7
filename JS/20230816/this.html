@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
@@ -14,9 +14,24 @@
 
     <script>
         function a() {
-            console.log(this);
+            console.log(this)
         }
-        // a();
+        a();
+        //출력: window 객체 => 브라우저 환경의 전역 공간을 의미
+        //window(브라우저) 객체에 a라는 함수가 선언됨
+
+        const myObj = {
+            val1: 100,
+            func1: function () {
+                console.log(this);
+            }
+        }
+
+        myObj.func1();
+        //출력: {val1: 100, func1: f}
+        //this가 myObj를 가리킴
+
+        //==>this는 호출되는 위치에 따라 다른 공간을 가리킴
 
         const myObj = {
             val1: 100,
@@ -25,16 +40,20 @@
             }
         }
 
-        const button1 = document.getElementById("btn1");
-        const button2 = document.getElementById("btn2");
+        let test = myObj.func1;
+        test()
+        //출력: window 객체
+        //why?: 위에서 function은 myObj안에서 선언이 되었지만, 여기서 function은 ...???
 
-        button1.addEventListener('click', myObj.func1);
-        button2.addEventListener('click', myObj.func1);
 
-        // let test = myObj.func1;
-        // test();
+        let button1 = document.getElementById("btn1");
+        //getElementById: 해당 아이디를 가진 요소에 접근할 수 있음 => button을 button1이라는 메모리 상에 저장함
+        //getElementById는 document라는 객체의 메소드
+        let button2 = document.getElementById("btn2");
 
-        // myObj.func1();
+        button1.addEventListener("click", myObj.func1);
+        //event 적용 : 동작(click)과 동작에 대한 반응(myObj.func1) 지시
+        button2.addEventListener("click", test);
     </script>
 </body>
 
