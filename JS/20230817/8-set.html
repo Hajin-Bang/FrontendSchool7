@@ -22,6 +22,30 @@
         const differ = [...a].filter((value) => {
             return !b.has(value);
         })
+
+
+
+        //로또 번호 추첨기에 Set 사용해보기
+        function lottoGenerator() {
+            // const lottArr = [];
+            const lottoSet = new Set();
+
+            while (lottoSet.size < 6) {
+
+                // 1~ 44.999...
+                const result = parseInt(Math.random() * 45 + 1);
+
+                // if (!lottArr.includes(result)) { 
+                //   lottArr.push(result);
+                // }
+
+                lottoSet.add(result);
+
+            }
+            // return lottArr;
+            return lottoSet;
+        }
+        console.log(lottoGenerator());
     </script>
 </body>
 

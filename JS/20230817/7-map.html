@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <script>
+        new Map();
+        const myMap = new Map();
+        myMap.set('하나', 1); // map에 값 넣기 // Map{'하나'==>1} 
+        myMap.get('하나'); // map의 값에 접근 // 1
+
+        myMap.has('하나'); //myMap에 '하나'라는 키값이 존재하는지 확인
+        //결과: true 
+        myMap.delete('하나') //키 값 삭제 
+
+
+        myMap.set(func, test);
+        //값을 명시하진 않았지만 대충 예시로 살펴보면,
+        //이렇게 함수를 key로 사용할 수도 있다
+
+
+        for (const item of myMap) {
+            console.log(item);
+        }
+
+        for (const [key, value] of myMap) {
+            console.log(`${key} ${value}`)
+        }
+
+
+        //인덱스를 가지는 자료형을 맵핑하기
+        let temp = new Map([[1, 10],
+        [2, 20],
+        [3, 30],
+        [4, 40]]);
+
+        console.log(temp);
+        //결과
+        //Map(4) {
+        //1 => 10,
+        //2 => 20,
+        //3 => 30,
+        //4 => 40
+        //}
+
+
+        // Object 자료형을 맵으로 변환하기
+        let temp2 = new Map(Object.entries({ one: 1, two: 2 }));
+        //Object.entries(): 주어진 객체의 각 키-값 쌍을 배열로 변환
+        //[ ['one', 1], ['two', 2] ]
+        //배열로 변환하고 나면, 위에서 배열을 맵핑한 것과 같은 과정이 된다
+        console.log(temp2);
+        //결과
+        //Map(2) {
+        //'one' => 1,
+        //'two' => 2
+        //}
+
+
+        //반대로 적용하기
+        const temp3 = Object.fromEntries(temp2);
+        //Object.fromEntries: 주어진 map객체를 일반 객체로 변환
+        //temp2가 map객체이므로 이를 일반 객체로 변환한다
+        //temp2의 키-값 쌍들을 프로퍼티로 가지는 일반 객체가 됨
+        console.log(temp3);
+        // Map(2) {
+        // 'one' => 1,
+        // 'two' => 2
+        // } //원래 temp2가 이랬다면
+
+        // {
+        // 'one': 1,
+        // 'two': 2
+        // } //temp3는 일반 객체로 출력
+
+
+
+        //***'Map'객체와 일반 객체(Object)의 차이는 정확히 뭘까?
+        //1. 일반 객체의 키는 문자열만 가능하지만, map객체의 키는 어떤 데이터 타입이든 가능하다(함수 등등)
+        //2. 일반 객체는 키-값 쌍의 순서가 보장되지 않지만, map객체에서는 순서가 보장된다(원소가 추가된 순서대로 적용 됨)
+        //3. 일반 객체는 크기를 나타내는 속성(size)가 내장되어 있지 않지만, map객체에서는 size를 사용하여 크기를 보여준다
+    </script>
+</body>
+
+</html>

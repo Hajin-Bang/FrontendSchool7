@@ -43,9 +43,9 @@
         const newInner = outer();
 
         newInner();
-        //outer함수가 모두 return되어 사라져도 inner함수는 제대로 작동할 수 있는가? 
+        //outer함수가 모두 return되어 사라져도 inner함수는 제대로 작동할 수 있는가? ==> yes
         //inner함수는 outer에 있는 값을 사용하고 있다(참조)
-        //==> outer함수는 사라져도 a라는 값 자체는 남아있으므로 inner함수가 실행될 수 있다
+        //==> outer함수는 사라져도 a라는 값 자체는 참조되어 남아있으므로 inner함수가 실행될 수 있다
 
 
         const person = function () {
