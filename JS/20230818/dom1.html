@@ -5,51 +5,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom</title>
+    <title></title>
 </head>
 
 <body>
-    점심 식단
-    <article id="container">
-        <ul>
-            <li>탕수육</li>
-            <li class="item-second">유산슬</li>
-            <li>짜장면<button>버튼</button></li>
-        </ul>
-    </article>
-    저녁 식단
-    <article>
-        <ul>
-            <li>된장국</li>
-            <li class="item-second">김치찌게</li>
-            <li>해장국</li>
-        </ul>
-    </article>
-
+    <ul>
+        <li><a href=""></a></li>
+        <li id="item2"><a href=""></a></li>
+        <li class="item3"><a href=""></a></li>
+    </ul>
     <script>
-        const btn = document.querySelector('button');
+        //DOM: Document Object Model ==> html 각 요소들을 트리형식으로 나타냄 
 
-        btn.addEventListener('click', function () {
-            btn.classList.toggle("blue");
-        });
+        //하나의 객체를 node라고 부름 
 
-        const firstLi = document.querySelector('#container+article .item-second');
+        //API: 응용 프로그래밍 인터페이스 
+        //프로그램들 사이에서 데이터나 기능을 주고받을 수 있도록 인터페이스를 제공
+        //DOM은 JavaScript를 통해 웹 페이지와 상호작용할 수 있는 수단을 제공하는 API
+        //웹페이지와 프로그래밍 언어를 연결
 
-        const lis = document.getElementsByTagName('li');
-        const lis2 = document.querySelectorAll('li');
+        document.head //현재 문서의 <head>요소에 접근
+        document.body //현재 문서의 <body>요소에 접근 
+        document.body.childNodes //body요소의 자식 노드들에 접근 
+        document.body.childNodes[1] //body요소의 두번째 자식 노드에 접근 
+        document.body.childNodes[1].tagName //tagName: 두번째 자식 노드의 태그 이름을 반환
+        document.body.childNodes[1].innerText //innerText: 텍스트 내용을 반환 
+        // document.body.childNodes[1]. 
+        //점만 찍어서 얼마나 많은 애트리뷰트가 있는지 확인해보세요.  //이거는 불가능하다는데?????
+        document.body.childNodes[2]
+        document.body.childNodes[2].data //세번째 자식 노드의 데이터 내용을 반환
 
-        const container = document.querySelector('#container ul');
 
-        container.append(document.createElement('li'));
 
-        console.log(lis);
+        ///DOM 트리에 접근하기///
+        //body 상단의 html 내용을 확인하자
 
-        console.log(lis2);
+        document.getElementById();
+        // 해당하는 Id를 가진 요소에 접근하기
+        // id는 한 페이지에 한 번만 사용 가능 ==> element 단수형으로 작성 
+        document.getElementById('item2'); //item2이라는 id를 가진 요소에 접근
 
-        // const lis2 = document.getElementsByClassName('item-second');
+        document.getElementsByTagName();
+        // 해당하는 모든 요소에 접근하기
+        // 태그는 여러번 작성 가능함 ==> elements 복수로 작성
+        document.getElementsByTagName('li'); //문서의 모든 li태그에 접근
 
-        // const container = document.getElementById('container');
-        // const innerLis = container.getElementsByTagName('li');
+        document.getElementsByClassName();
+        // 해당하는 클래스를 가진 모든 요소에 접근하기
+        document.getElementsByClassName('item3'); //item3라는 class명을 가진 요소에 접근
+
+        document.querySelector("selector");
+        // css 선택자로 단일 요소에 접근하기
+        document.querySelector(#item2); //id: item2인 요소에 접근
+        //딱 하나. 제일 첫번째 노드만 가지고 옴 
+
+        document.querySelectorAll("selector");
+        // css 선택자로 여러 요소에 접근하기
+        document.querySelectorAll(.item3); //class: item3인 요소에 '모두' 접근
+
+
     </script>
 </body>
 
