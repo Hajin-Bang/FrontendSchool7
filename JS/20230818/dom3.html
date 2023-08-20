@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <button>HELLO!</button>
+    <!-- 이벤트 삽입에 대한 HTML 예시 -->
+
+    <button>Make me BLUE!</button>
+    <!-- 클래스 제어에 대한 HTML 예시 -->
+
+    <ul></ul>
+    <button>Make me MORE!</button>
+    <!-- 요소 제어에 대한 HTML 예시 -->
+
+    <script>
+        //DOM 제어 명령어//
+
+
+        //이벤트 삽입
+        const myBtn = document.querySelector("button"); //첫번째로 발견되는 <button>요소
+
+        myBtn.addEventListener('click', function () {
+            //클릭 이벤트 리스너 삽입
+            //myBtn을 click했을 때 일어나는 반응에 대한 함수
+            //mouseover, wheel, mouseout 등 다양한 이벤트를 감지함
+            console.log("hello world");
+        })
+
+
+        //클래스 제어 
+        const myBtn = document.querySelector("button");
+
+        myBtn.addEventListener('click', function () {
+
+            myBtn.classList.add("blue");
+            //classList.add: myBtn에 "blue"라는 클래스를 추가
+            //=> css에서 blue 클래스에 대한 스타일을 정의하면 스타일이 변경됨
+
+            // myBtn.classList.remove("blue");     클래스를 제거합니다.
+            // myBtn.classList.toggle("blue");     클래스를 토글합니다. 없으면 넣어주고, 있으면 제거합니다.
+            // myBtn.classList.contains("blue");   해당하는 클래스가 있는지 확인합니다.
+        })
+
+
+        //요소 제어 
+        document.createElement(target) //target 요소를 생성
+        document.createTextNode(target) //target 텍스트를 생성
+        element.appendChild(target) //target 요소를 element의 자식으로 위치
+        element.removeChild(target) //element의 target 자식 요소를 제거
+
+        const myBtn = document.querySelector("button");
+        const myUl = document.querySelector("ul");
+
+        myBtn.addEventListener('click', function () {
+            for (let i = 0; i < 5; i++) {
+                const myLi = document.createElement('li');
+                //document.createElement(target): 새로운 li 요소를 생성
+                myUl.appendChild(myLi);
+                //생성한 myLi(li) 요소를 myUl(ul)의 자식으로 추가
+            }
+        })  //=> 버튼을 클릭할 때마다 목록에 5개의 리스트 아이템이 추가되는 동작을 구현
+
+
+        element.append(target) //target 요소를 element의 자식으로 위치
+        element.appenChild //와 다른점은? 
+        //append는 여러 개의 노드를 한번에, 그리고 텍스트도 자식 노드로 포함시킬 수 있다.
+
+        target.remove() //target 요소를 제거
+        const myBtn = document.querySelector("button");
+        const myUl = document.querySelector("ul");
+
+        myBtn.addEventListener('click', function () {
+            for (let i = 0; i < 5; i++) {
+                const myLi = document.createElement('li');
+                const btnDel = document.createElement('button');
+                const btnTxt = document.createTextNode = '버튼'; //버튼 텍스트를 생성
+
+                btnDel.append(btnTxt);
+                btnDel.addEventListener('click', () => {
+                    myLi.remove();
+                });
+                myLi.append('삭제하기: ', btnDel);
+                myUl.appendChild(myLi);
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
