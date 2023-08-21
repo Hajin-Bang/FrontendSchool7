@@ -5,47 +5,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>DOM</title>
 </head>
 
 <body>
     <div class="parent"></div>
 
     <ul></ul>
-    <button>생산시작!</button>
+    <button>생산 시작!</button>
 
     <div id="parentElement">
         <span id="childElement">hello guys~</span>
     </div>
 
-
     <script>
-        const text = document.createElement('p');
+        const text = document.createElement('p'); //text라는 상수에 p태그를 생성
+        //메모리 공간에 p 태그를 만들고, text라는 상수에 참조를 하는 것이다
         const text2 = document.createElement('p');
-        const textInside = document.createTextNode('문장입니다.');
-        text.appendChild(textInside);
-        text2.appendChild(textInside);
+
+        const textInside = document.createTextNode('문장입니다.') //p태그 안에 내용을 넣어줌(텍스트 생성)
+        text.appenChild(textInside); //textInside를 text 요소의 자식으로 배치
+        text2.appenChild(textInside);
 
         const parent = document.querySelector('.parent');
 
-        // parent.appendChild(text);
-        // parent.appendChild(text2);
+        parent.appendChild(text); //parent 클래스에 자식으로 text요소 배치
+        parent.appendChild(text2);
 
-        parent.append('text 입니다~', text, text2);
+        //parent.append(text, text2) //여러 요소를 한번에 추가할 수 있다
 
-        // parent.removeChild(text2);
-        // parent.remove();
+        parent.removeChild(text2); //parent의 자식인 text2요소를 지움 
 
-        // li 한번에 여러개 만들기
         const myBtn = document.querySelector("button");
         const myUl = document.querySelector("ul");
 
+        //버튼을 누르면면 li태그 생성 
         // myBtn.addEventListener('click', function () {
         //     for (let i = 0; i < 5; i++) {
         //         const myLi = document.createElement('li');
-        //         myUl.appendChild(myLi);
+        //         myUl.appendChild(myLi); //ul의 자식 요소로 li를 추가
         //     }
         // })
+
+        //버튼을 누르면 li태그를 생성하는 것과, 삭제 버튼을 누르면 li태그를 삭제하는 것
+        const myBtn = document.querySelector("button");
+        const myUl = document.querySelector("ul");
 
         myBtn.addEventListener('click', function () {
             for (let i = 0; i < 5; i++) {
@@ -62,8 +66,7 @@
             }
         });
 
-
-        // 첫번째 자식 요소로 붙이기
+        //첫번째 요소로 붙이기 
         // parentElement.insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 이동합니다.
 
         var span = document.createElement("span");

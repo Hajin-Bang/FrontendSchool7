@@ -5,28 +5,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* p {
-            text-align: center;
-        } */
-    </style>
+    <title></title>
 </head>
 
 <body>
-    <p style="text-align: center;">hello</p>
+    <p></p>
     <input type="text">
     <button>작동!</button>
 
     <script>
+        //textContent와 innerHTML의 차이
+        //textContent
+        const text = document.querySelector('p');
+        const inp = document.querySelector('input');
+        const btn = document.querySelector('button');
+
+        btn.addEventListener('click', function () {
+            text.textContent = inp.value;
+        })
+        //input값에 html태그 내용을 넣었을 때의 차이를 보자
+        //<img src='x' onerror='alert(1)'> 이 text를 input 해도 text 그대로 나온다 
+        //textContent로 넣었기 때문 //==> 문자열 그 자체로 인식한다
+
+
+        //innerHTML
         const text = document.querySelector('p');
         const inp = document.querySelector('input');
         const btn = document.querySelector('button');
 
         btn.addEventListener('click', function () {
             text.innerHTML = inp.value;
-        });
+        })
+        //innerHTML로 처리한다면?
+        //<img src='x' onerror='alert(1)'>이런 문자를 넣으면 HTML을 적용해서 출력한다
 
+        //==> innerHTML을 쓰면 자바스크립트를 작동시킬 수 있는 가능성이 있으니 나쁜 의도를 가진 사용자가 코드를 입력 할 수 없도록 사용자의 입력 값을 innerHTML을 통해 할당 받는 일이 일어날 수 있다
+        //따라서 사용자의 입력값을 받을 때는 textContent로 받는게 좋다
     </script>
 </body>
 
