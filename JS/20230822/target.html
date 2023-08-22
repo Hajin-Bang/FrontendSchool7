@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
@@ -19,25 +19,41 @@
 
     <script>
         const parent = document.querySelector('.parent');
-        parent.addEventListener('click', (event) => {
-
-            console.log(this);
+        parent.addEventListener('click', function (event) {
+            //event 이름은 마음대로 써도 된다
+            console.log(event.target); //event가 발생한 대상(요소) : button
             console.log(event.currentTarget);
+            //event handler가 달려있는 요소 = 이벤트 리스너가 연결된 요소 : article(parent)
 
-            // 이벤트가 발생한 대상을 조건식으로 특정하기
-            if (event.target.nodeName === "LI") {
-                event.target.textContent = "hello";
+            //이벤트 위임
+            //console.log(event.currentTarget) 대신 조건식을 써보자
+            //이벤트가 발생한 대상을 조건식으로 특정하기 
+            if (event.target.nodeName === "BUTTON") { //이벤트를 발생시킨 대상이 button이 맞다면
+                event.target.innerText = "버튼4"; //버튼4로 바꿔라
             }
-        });
 
-        myObj = {
-            name: 'jaehyun',
-            walk() {
-                parent.addEventListener('click', () => {
-                    console.log(this.name, ' is walking');
-                });
+            //이벤트의 this
+            console.log(this);
+            //이벤트 리스너 함수 내부에서의 this 값은 이벤트가 연결된 노드를 참조
+            const myObj = {
+                name: 'jaehyun',
+                walk() {
+                    parent.addEventListener('click', () => {
+                        console.log(this.name + ' is walking'); //this가 가리키는 것은?: myObj
+                    })
+                }
             }
-        }
+
+            //이벤트 자체는 article(parent)에 걸려있지만, button에 이벤트가 걸린 것처럼 동작 (각 버튼마다 독립적으로 동작)
+            //target 속성을 통해 이벤트 리스너가 없는 요소의 이벤트가 발생했을 때도 해당 요소에 접근 할 수 있다 => 버튼마다 이벤트를 넣어줄 필요가 없다 
+
+            //결과
+            //event가 실행될 때 target연산자와 currentTarget연산자가 실행되고 있다
+            //console이 두개 찍힘 (li와 article이 찍힘)
+        })
+
+
+
     </script>
 </body>
 
