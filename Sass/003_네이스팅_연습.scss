@@ -1,15 +1,15 @@
+//html파일을 보면, nav안에 - ul안에 - li안에 - i가 있다
 nav {
     background: #bbb;
     padding: 10px;
-
     ul {
         display: flex;
         justify-content: space-between;
-
+        
         li {
             list-style: none;
 
-            &:hover {
+            &:hover { //li에 hover됐을 때를 li 안쪽에 적용해서 넣음
                 background-color: white;
             }
         }
@@ -18,11 +18,11 @@ nav {
             color: red;
 
             background: {
-                image: url(./house-solid.svg);
+                image: url(house-solid.svg);
                 position: center center;
                 repeat: no-repeat;
                 size: 14px 14px;
-            }
+            } //background 한번에 모아서
         }
 
         .two {

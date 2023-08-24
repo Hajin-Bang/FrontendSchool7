@@ -1,8 +1,10 @@
+//속성 nesting
+//스타일 속성도 중첩이 가능하다
 .add-icon {
     background : {
-        image: url("./assets/arrow-right-solid.svg");
-        position: center center;
-        repeat: no-repeat;
-        size: 14px 14px;
+      image: url("./assets/arrow-right-solid.svg");
+      position: center center;
+      repeat: no-repeat;
+      size: 14px 14px;
     }
-}
+  }  //background 속성들을 모두 bacground안에 중첩시켜서 스타일 코드를 작성함

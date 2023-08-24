@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* 2 주석입니다. */
 .one {
   color: red;
 }
@@ -8,4 +7,7 @@
 }
 .one .two .three {
   color: blue;
-}/*# sourceMappingURL=001_네이스팅과_주석.css.map */
+}
+
+/* css파일 내에서도 동일하게 보여지려면 
+여러줄 주석을 처리한다 *//*# sourceMappingURL=001_네이스팅과 주석.css.map */

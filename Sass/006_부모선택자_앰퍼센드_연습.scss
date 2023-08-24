@@ -3,22 +3,20 @@ nav {
         border: solid 1px black;
         display: flex;
         justify-content: space-between;
-
         li {
             list-style: none;
 
+            // &를 이용한 요소 선택
             &:first-child {
-                color: white;
+                color:white;
             }
-
+            
             &:nth-child(1) {
                 background-color: red;
             }
-
             &:nth-child(2) {
                 background-color: green;
             }
-
             &:nth-child(3) {
                 background-color: blue;
             }
@@ -26,7 +24,6 @@ nav {
             &:hover {
                 background-color: white;
             }
-
         }
     }
 }

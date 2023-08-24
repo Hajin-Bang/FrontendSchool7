@@ -1,19 +1,33 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>부모선택자 앰퍼센드 연습</title>
-    <link rel="stylesheet" href="./006_부모선택자_앰퍼센드_연습.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부모선택자 엠퍼센드 연습</title>
+    <link rel="stylesheet" href="./006_부모선택자_엠퍼센트_연습.css">
 </head>
+
 <body>
-    <!-- nav>ul>li{hello}.menu$*3 -->
-    <!-- nav>ul>li*3 -->
     <nav>
-        <ul>
-            <li>one</li>
-            <li>two</li>
-            <li>three</li>
-        </ul>
+        <!-- nav>ul>li{hello}.menu$*3 -->
+        <!-- 이렇게 쓰면 아래와 같이 적용된다 -->
+        <!-- 
+        <li class="menu1">hello</li>
+        <li class="menu2">hello</li>
+        <li class="menu3">hello</li> 
+        -->
+
+        <!-- nav>ul>li*3 -->
+        <nav>
+            <ul>
+                <li>one</li>
+                <li>two</li>
+                <li>three</li>
+            </ul>
+        </nav>
     </nav>
 </body>
+
 </html>

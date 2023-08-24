@@ -1,27 +1,30 @@
-// Scss
+//앰퍼샌드 
+//&: 상위에 있는 부모 선택자
+  //이를 이용하여 가상요소, id셀렉터 등을 참조할 수 있다
+
+
 // .box {
-//     &:focus {}
-//     // 가상선택자
-//     &:hover {}
-//     &:active {}
-//     &:first-child {}
-//     &:nth-child(2) {}
-//     &::after {}
-//     // 가상요소
-//     &::before {}
+// 	&:focus{} // 가상선택자
+// 	&:hover{}
+//   &:active{}
+// 	&:first-child{} 
+//   &:nth-child(2){}
+// 	&::after{} // 가상요소
+// 	&::before{} 
 // }
 
 ul {
     li {
-        &:hover {
-            background: white;
-            cursor: pointer;
-            // 가상요소 
-        }
-
-        &:last-child {
-            border-bottom: 2px solid black;
-            // 가상클래스 
-        }
+      &:hover {
+        background: white;
+        cursor: pointer;
+              // 가상요소 
+      }
+      &:last-child {
+        border-bottom: 2px solid black;
+              // 가상클래스 
+      }
     }
-}
+  }
+  //li 태그의 가상요소와 가상클래스에게 스타일을 적용한 예시 
+  //&을 사용하여 li와 :hover, :last-child를 연결

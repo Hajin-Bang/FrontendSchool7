@@ -1,13 +1,15 @@
-// 1 주석입니다.
-/* 2 주석입니다. */
+// one > two > three //one클래스 밑에 two클래스 밑에 three클래스로 작성하려면? 
+
 .one {
     color: red;
-
     .two {
         color: green;
-
         .three {
             color: blue;
         }
     }
-}
+}  //이렇게 작성하고 live sass를 켰더니 css파일에 정리가 되었다..!
+
+/* css파일 내에서도 동일하게 보여지려면 
+여러줄 주석을 처리한다 */
+//한줄 주석은 scss내부에서만
