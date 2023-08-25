@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
     <script>
+        //prototype: 
+
         function NewFactory2(name) {
             this.name = name;
         }
@@ -18,50 +20,60 @@
             console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
         }
 
-        const robot = new NewFactory2('재현');
 
-        // 객체를 생성자함수를 통해서 생성해보기
-        const me = {
-            name: '한재현',
-            address: '제주도 제주시 인다 1길',
-            phoneNum: '010-8000-0000',
-            canWalk: function () {
-                console.log('재현이가 걷는다.');
-            },
-            teaching: function (student) {
-                student.levelUp();
-            }
-        }
+        //그렇게 중요한 내용은 아니지만 암기 
+        const robot = new NewFactory2('하진'); //인스턴스가 됨
+        //출력 결과: name:"하진" / [[Prototype]]: Object  ==> 새로운 프로퍼티인 [[Prototype]]이 존재
+        //prototype값에 접근하고 싶으면 robot.__proto__  이라고 입력
+        //new 키워드를 통해 생성자 함수의 prototype과 인스턴스의 __proto__가 연결 
+        //console.log(obj.__proto__ === Test.prototype);
+        //prototype은 항상 "함수" 안에서만 존재하는 참조값이다
+        //__proto__는 "객체(인스턴스)" 안에서만 존재하는 값
+        //이 둘은 서로를 참조하고 있다 console.log(robot.__proto__ === Test.prototype);
 
-        const lion = {
-            level: 1,
-            levelUp: function () {
-                this.level++;
-            }
-        }
 
-        function Me(myAddress) {
-            this.address = myAddress;
+
+        //실습 : 우리가 객체지향 개념에서 만들었던 ‘나’ 와 ‘대상’ 객체를 생성자를 통해서 만들어 볼 수 있도록 코드를 수정해봅시다.
+
+        // const me = {
+        //     name: '한재현',
+        //     address: '제주도 제주시 인다 1길',
+        //     phoneNum: '010-8000-0000',
+        //     canWalk: function () {
+        //         console.log('재현이가 걷는다.');
+        //     },
+        //     teaching: function (student) {
+        //         student.levelUp();
+        //     }
+        // }
+
+        // const lion = {
+        //     level: 1,
+        //     levelUp: function () {
+        //         this.level++;
+        //     }
+        // }
+
+        //
+        function Me() {
+            this.name = '한재현';
+            this.address = '제주도 제주시 인다 1길';
             this.phoneNum = '010-8000-0000';
-            function canWalk() { };
         }
-
-        Me.prototype.name = "김창영";
 
         Me.prototype.canWalk = function () {
             console.log('재현이가 걷는다.');
-        };
-
-        Me.prototype.teaching = function (student) {
-            student.levelUp();
-        }
+        },
+            Me.prototype.teaching = function (student) {
+                student.levelUp();
+            }
 
         function Lion() {
             this.level = 1;
         }
 
         Lion.prototype.levelUp = function () {
-            this.level++;
+            student.levelUp();
         }
     </script>
 </body>

@@ -5,52 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
     <script>
-        class Robot {
+        //class의 결과물은 인스턴스를 생성하는 것 
+        class Robot { //class의 이름은 대문자로 시작
+            // 클래스의 생성자 함수입니다. 하나의 클래스는 하나의 생성자만 정의할 수 있습니다. 
+            // 그리고 생성자 함수는 new 키워드가 호출될때 자동으로 실행됩니다.
             constructor(name) {
-                this.myName = name;
+                this.myName = name; //myName이라는 프로퍼티에 name값을 넣어줌
             }
+            // 메소드를 정의합니다. 메소드는 클래스가 생성한 인스턴스를 통해 사용할 수 있습니다.
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
 
-            sayYouName() {
-                console.log(`제 이름은 ${this.myName} 입니다 삐리비리리비리`);
+        const robot = new Robot('재현');
+        //'재현'의 값이 생성자함수의 name으로 전달됨
+        //생성자 함수로 인스턴스를 만드는 것과 동일
+
+        robot // Robot{myName: '재현'}
+
+        robot.sayYourName() //삐리비리~ 
+
+        // 실습 : 우리가 위에서 만들어본 여러분 자신의 생성자 함수를 class 문법으로 변경해봅시다.
+        const me = {
+            name: '한재현',
+            address: '제주도 제주시 인다 1길',
+            phoneNum: '010-8000-0000',
+            canWalk: function () {
+                console.log('재현이가 걷는다.');
+            },
+            teaching: function (student) {
+                student.levelUp();
+            }
+        }
+
+        const lion = {
+            level: 1,
+            levelUp: function () {
+                this.level++;
             }
         }
 
 
-        // function Me(myAddress) {
-        //     this.name = "재현";
-        //     this.address = myAddress;
-        //     this.phoneNum = '010-8000-0000';
-        //     function canWalk() { };
-        // }
-
-        // Me.prototype.canWalk = function () {
-        //     console.log('재현이가 걷는다.');
-        // };
-
-        // Me.prototype.teaching = function (student) {
-        //     student.levelUp();
-        // }
-
-        // function Lion() {
-        //     this.level = 1;
-        // }
-
-        // Lion.prototype.levelUp = function () {
-        //     this.level++;
-        // }
-
         class Me {
             constructor(myAddress) {
-                this.name = "재현";
-                this.address = myAddress;
+                this.name = '한재현',
+                    this.address = myAddress;
                 this.phoneNum = '010-8000-0000';
             }
-
             canWalk() {
                 console.log('재현이가 걷는다.');
             };
@@ -71,6 +78,8 @@
         }
 
 
+        const me = new Me('제주시 아라동');
+        const lion = new Lion();
     </script>
 </body>
 
