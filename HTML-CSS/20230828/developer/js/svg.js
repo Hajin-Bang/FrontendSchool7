@@ -3,12 +3,16 @@ const path = document.querySelector('#path');
 const openBtn = document.querySelector('.btn-open');
 
 // path의 전체 길이 구하기
-const pathLength = path.getTotalLength();
+const pathLength = path.getTotalLength(); 
+// svg 경로의 전체 길이를 반환 => 주로 선이나 경로를 애니메이션으로 그릴 때 사용 => 선이 얼마나 그려져야 하는지를 정확히 계산할 수 있음
 
 // dash 의 길이와 공백
 // path.style.strokeDasharray = 1000 + " " + 1000;
 // path.style.strokeDasharray = pathLength + " " + pathLength;
 path.style.strokeDasharray = `${pathLength} ${pathLength}`;
+// path에 대한 strokeDasharray 속성을 설정
+// strokeDasharray: 선이나 경로를 그릴 때 선과 공백의 길이를 지정하는 속성 => `선의 길이, 선의 공백`
+
 
 // dash를 어디서 부터 그릴지
 path.style.strokeDashoffset = pathLength;
