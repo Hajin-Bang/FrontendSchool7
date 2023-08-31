@@ -41,15 +41,18 @@
         let keys = "";
 
         function move(event) {
-            keys = event.key;
+            keys = event.key; //event 객체의 'key' 속성 값을 'keys' 변수에 할당
         }
 
         function stop() {
-            keys = "";
+            keys = ""; //keys 변수의 값을 빈 문자열로 초기화
         }
 
         document.addEventListener('keydown', move);
+        //키를 누를 때 move함수가 실행
+        // ==> 눌린 키의 key 값을 keys변수에 저장
         document.addEventListener('keyup', stop);
+        //키를 뗄 때 stop함수가 실행
 
         function play() {
             switch (keys) {
@@ -63,6 +66,13 @@
                     break;
             }
             requestAnimationFrame(play);
+            //play 함수를 반복적으로 호출하도록 요청
+            //애니메이션을 부드럽고 효율적으로 처리하기 위해 사용
+            //=> 함수를 반복 호출함으로써 애니메이션 루프를 구현하는 데 활용
+
+            //requestAnimationFrame의 주요 기능
+            //프레임 동기화: 브라우저가 다음 프레임을 렌더링하기 직전에 호출 -> 부드러운 애니메이션 구현
+            //비활성 탭에서의 중단 : 리소스 낭비를 방지
         }
 
         requestAnimationFrame(play);

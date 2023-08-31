@@ -21,7 +21,9 @@
     </article>
     <script>
         const figure = document.querySelector(".parent figure");
+        //parent클래스 내부에서 figure 요소를 선택
         const img = figure.querySelector('.figImg');
+        //figure 내부에서 클래스 figImg를 찾음 
         const figcap = figure.querySelector('.figCap');
 
         figure.innerHTML = ` <img class="figImg"
@@ -30,6 +32,8 @@
             <figcaption class="figCap">
                 유재석씨가 수상식에서 환하게 웃고 있다.
             </figcaption>`;
+        //figure 요소의 내용읠 변경
+
 
         // img.setAttribute('src', "https://file.mk.co.kr/meet/neds/2021/07/image_readtop_2021_654175_16256093474708254.jpg");
         // figcap.textContent = "유재석씨가 수상식에서 환하게 웃고 있다.";

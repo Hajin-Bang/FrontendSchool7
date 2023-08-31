@@ -23,16 +23,15 @@
         </figure>
     </article> -->
     <script>
-        let main2 = 1;
-        main2 = null;
-
         const main = document.querySelector('main');
         const frag = new DocumentFragment();
+        //새로운 documentFragment 객체를 생성하여 frag 변수에 할당
         const frag2 = new DocumentFragment();
         // const frag = document.createDocumentFragment();
 
         for (let i = 0; i < 10; i++) {
             const article = document.createElement('article');
+            //article 변수에 article 요소를 생성하여 할당
             article.innerHTML =
                 `<figure>
                     <img class="figImg"
@@ -44,7 +43,9 @@
                 </figure>`;
             // main.appendChild(article);
             frag.appendChild(article);
+            //생성한 article 요소를 frag(documentfragment)에 추가
         }
+        //메모리 내에 여러개의 article 요소를 생성하고 생성한 article 요소들을 frag에 추가
 
         // main.appendChild();
         console.log(frag.cloneNode());
