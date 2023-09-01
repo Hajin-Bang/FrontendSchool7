@@ -5,19 +5,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
     <p>some text</p>
-    <button>통신 시작!</button>
-
+    <button type="button">눌러봐</button>
     <script>
-        // const btn = document.querySelector('button');
-        // const txt = document.querySelector('p');
-        // btn.addEventListener('click', xhrRequest);
+        //XMLHttpRequest: 서버와의 비동기 통신을 가능하게 하는 여러 기능들을 가진 자바스크립트 객체
 
-        let result;
+        const xhrObj = new XMLHttpRequest(); //XMLHttpRequest 객체를 만들기 위한 생성자 함수
+        //비동기 통신을 할 수 있는 여러가지 메솓를 사용할 수 있어진다
+
+        xhrObj.open('GET', 'URL') //통신할 서버의 주소, 통신할 채널을 열기
+        xhrObj.onreadystatechange = () => {
+            if (xhrObj.readyState === 4 && xhrObj.status === 200)
+            // readystate : 요청을 보내는 클라이언트의 상태를 의미합니다.
+            // readystate의 종류
+            // 0 (UNSENT) - XHR 객체가 생성되었지만 아직 초기화되지 않았습니다.
+            // 1 (OPENED) - open()함수가 호출되어 요청이 초기화되었습니다.
+            // 2 (HEADERS_RECEIVED) - send()함수가 호출되었습니다.
+            // 3 (LOADING) - 데이터를 다운받는 중 입니다.
+            // 4 (DONE) - 통신이 완료되었습니다.
+
+            //status 200: 서버에서 보내는 상태값 => 요청한 내용이 성공적으로 완료되었음을 의미
+        };
+
+        //readyState와 status의 차이
+        //readyState === 4 (즉, 피자가 집에 도착했음)이고 status === 200 (즉, 피자가 올바르게 만들어졌음)인 경우에만 모든 통신이 계획대로 잘 진행되었다는 것을 의미
+
+
+
+        //실습: 버튼을 누르면 데이터를 비동기적으로 가져와 화면에 표시하는 앱
+        const btn = document.querySelector('button');
+        const txt = document.querySelector('p');
+        btn.addEventListener('click', xhrRequest);
 
         function xhrRequest() {
             const xhrObj = new XMLHttpRequest();
@@ -25,19 +47,13 @@
 
             xhrObj.onreadystatechange = () => {
                 if (xhrObj.readyState === 4 && xhrObj.status === 200) {
-                    result = xhrObj.responseText;
-                    // txt.textContent = result;
-
-                    console.log(result);
+                    const result = xhrObj.responseText;
+                    txt.textContent = result;
                 }
             };
 
             xhrObj.send();
         };
-
-        xhrRequest();
-
-        console.log(result);
     </script>
 </body>
 

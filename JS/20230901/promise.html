@@ -5,33 +5,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
     <script>
+        //fetch와 XHR의 차이점은? 
+        //fetch는 인스턴스를 만들지 않고, 대신 ‘약속’을 반환함
 
-        const orderCoffee = new Promise((resolve, reject) => {
+        //promise: 무언가를 할 것이라고 미리 정하는 행위
+        //1. pending 보류중인, 대기중인
+        //2. resolved 해결된, 결정된
+        //3. fulfilled 약속을 이행, 완수
+        //4. rejected 거절된 상태
+
+        //promise는 기본적으로 약속을 이행한 상태, 이행하지 못한 상태 둘 중 하나를 반환한다
+
+
+        const orderCoffee = new Promise((resolve, reject) => { //콜백함수를 인자로 받는 생성자 함수를 실행시킴 ==> oderCoffe에 할당!
+            //resolve: 요청이 해결됨
             const requestObj = new XMLHttpRequest();
-            requestObj.open('GET', 'orderCofee.txt');
+            requestObj.open('GET', 'orderCoffee.txt');
             requestObj.onreadystatechange = () => {
                 if (requestObj.readyState === 4) {
                     if (requestObj.status === 200) {
                         const result = requestObj.responseText;
                         resolve(result);
-                    } else {
-                        reject(new Error(`오늘의 커피 원두가 다 떨어졌습니다. ${requestObj.status}`));
+                        //통신에 성공했을 때 resolve함수를 실행
+                    } else { //통신이 실패했을 때의 예외처리는 반드시 넣어줘야한다(무조건 필요하다 !!)
+                        reject(new Error(`카드에 돈이 없다던디 ${requestObj.status}`));
                     }
                 }
             };
             requestObj.send();
         });
+        //promise 생성자 함수로 비동기 코드를 모두 감싸버렸다
 
-        orderCoffee.then((asyncResult) => {
-            console.log(asyncResult);
-        }).catch((error) => {
-            console.log(error);
-        });
+        console.log(orderCoffee);
+        //결과가
+        //처음에는 Promise{pending}이 뜨고,
+        //콘솔에 다시 ordercoffee를 찍었을 때 fulfilled가 뜬다
+        //왜? 처음에는 아직 커피 만드는 함수가 완료되지 않은 상태에서 console에 찍힌거고, 두번째로 직접 입력하였을 때는 완성된 상태인 것이다
     </script>
 </body>
 

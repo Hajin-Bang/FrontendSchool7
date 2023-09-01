@@ -5,78 +5,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
     <script>
         'use strict';
 
-        class UserStorage {
-            // 사용자가 입력한 값과 유저 정보가 일치하는 유저를 찾습니다.
+        class UserStrorage {
+            //사용자가 입력한 값과 유저 정보 안에서 일치하는 유저를 찾음 
             searchUser(userName, password, onSuccess, onError) {
 
                 const requestObj = new XMLHttpRequest();
-                requestObj.open('GET', 'users.json'); // 요청 초기화
+                //통신 요청 객체를 생성
+                requestObj.open('GET', 'users.json'); //요청 초기화
                 requestObj.onreadystatechange = () => {
                     if (requestObj.readyState === 4 && requestObj.status === 200) {
-                        const result = JSON.parse(requestObj.responseText).user.find((item) => {
+                        const result = JSON.parse(requestObj.responseText)
+                        //parse: json문자열을 자바스크립트 객체로 바꿔주는 메소드 
+                        //json문자열은 자바스크립트에 바로 가져와서 사용할 수 없다 ==> 반드시 바꿔줘야함
+                        //반대로 바꾸는 메소드는 stringify
+                        result.user.find((item) => {
                             return item.userName === userName && item.password === password
-                        });
+                        })
+                        //배열이기 때문에 find 메소드 사용 가능 
+                        //item의 username과 사용자가 입력한 username이 일치하는가, password도 동일
 
-                        // 사용자가 입력한 정보와 일치하는 유저가 존재한다면 
+                        // 사용자가 입력한 정보와 일치하는 유저가 존재한다면
                         if (result) {
                             onSuccess(userName);
-                            // 사용자가 입력한 정보와 일치하는 유저가 존재하지 않는다면
-                        } else {
+                        } else { // 사용자가 입력한 정보와 일치하는 유저가 존재하지 않는다면
                             onError(new Error('user not found'));
+                            //에러 객체를 만들어주는 생성자 함수
+                            //user not found라는 오류 메시지를 발생시킴
+                            //에러 메시지를 직접 지정할 수 있음
                         }
                     }
                 }
+
                 requestObj.send();
             }
 
-            // 유저에 맞는 인사말을 출력합니다.
+            //유저에 맞는 인사말을 출력
             sayHi(user, onSuccess, onError) {
                 const requestObj = new XMLHttpRequest();
-                requestObj.open('GET', 'greetings.json'); // 요청 초기화
+                requestObj.open('GET', 'greetings.json'); //요청 초기화
                 requestObj.onreadystatechange = () => {
                     if (requestObj.readyState === 4 && requestObj.status === 200) {
                         const result = JSON.parse(requestObj.responseText).greetings.find((item) => {
                             return item.userName === user
                         });
+                        //parse: json문자열을 자바스크립트 객체로 바꿔주는 메소드 
+                        //json문자열은 자바스크립트에 바로 가져와서 사용할 수 없다 ==> 반드시 바꿔줘야함
+                        //반대로 바꾸는 메소드는 stringify
+                        //json데이터에 들어있는 user의 이름과 사용자가 입력한 user의 이름이 같은지 확인
 
-                        // 사용자가 입력한 유저 이름과 일치하는 인사말이 존재한다면 
+                        // 사용자가 입력한 정보와 일치하는 인삿말이 존재한다면
                         if (result) {
                             onSuccess(result);
-                            // 사용자가 입력한 유저 이름과 일치하는 인사말이 존재하지 않는다면
-                        } else {
-                            onError(new Error('no greetings'));
+                        } else { // 사용자가 입력한 정보와 일치하는 유저가 존재하지 않는다면
+                            onError(new Error('인삿말이 없잖니'));
+                            //에러 객체를 만들어주는 생성자 함수
+                            //user not found라는 오류 메시지를 발생시킴
+                            //에러 메시지를 직접 지정할 수 있음
                         }
                     }
                 }
                 requestObj.send();
             }
         }
+        const userStrorage = new UserStrorage();
 
+        const userName = prompt('이름을 입력하세요');
+        const password = prompt('비밀번호를 입력하세요');
 
-        const userStorage = new UserStorage();
-
-        const userName = prompt('이름을 입력하세요.');
-        const password = prompt('비밀번호를 입력하세요.');
-
-        userStorage.searchUser(
+        userStrorage.searchUser(
             userName,
             password,
-            (name) => {
-                userStorage.sayHi(
+            (name) => { //onsuccess가 실행되면 username이 name에 들어간다
+                userStrorage.sayHi(
                     name,
                     (result) => {
-                        alert(`당신에게 인사합니다! ${result.userName}님 ${result.greetings}`);
+                        alert(`인사할게 &{result.userName}님 ${result.greetings}`)
                     },
                     (error) => {
                         console.log(error);
-                    });
+                    })
             },
             (error) => {
                 console.log(error);

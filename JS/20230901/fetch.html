@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
@@ -13,14 +13,16 @@
         fetch('https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json').then((response) => {
             if (!response.ok) {
                 throw new Error(`HTTP ERROR!! State: ${response.status}`);
+                //생성자 함수를 통해 만들어진 error 객체를 바로 에러 메세지에 던져버림 => 출력하게 함
             }
             return response.json();
-        }).then((data) => {
-            console.log(data);
-            return data;
-        }).catch((error) => {
-            console.error(error);
-        });
+        })
+            .then((data) => {
+                console.log(data);
+                return data;  //promise객체가 자바스크립트 객체로 바뀜 
+            }).catch((error => {
+                console.error(error);
+            })) 
     </script>
 </body>
 
