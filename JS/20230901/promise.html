@@ -32,6 +32,7 @@
                         const result = requestObj.responseText;
                         resolve(result);
                         //통신에 성공했을 때 resolve함수를 실행
+                        //=> resolve함수가 프로미스를 성공 상태로 변경
                     } else { //통신이 실패했을 때의 예외처리는 반드시 넣어줘야한다(무조건 필요하다 !!)
                         reject(new Error(`카드에 돈이 없다던디 ${requestObj.status}`));
                     }

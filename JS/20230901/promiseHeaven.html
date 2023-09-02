@@ -64,7 +64,7 @@
             }
 
 
-            sayHi(user, onSuccess, onError) {
+            sayHi(user) {
 
                 new Promise((resolve, reject) => {
                     const requestObj = new XMLHttpRequest();
@@ -75,9 +75,10 @@
                                 return item.userName === user
                             });
                             if (result) {
-                                onSuccess(result);
-                            } else { // 사용자가 입력한 정보와 일치하는 유저가 존재하지 않는다면
-                                onError(new Error('인삿말이 없잖니'));
+                                resolve(result);
+                                // 사용자가 입력한 유저 이름과 일치하는 인사말이 존재하지 않는다면
+                            } else {
+                                reject(new Error('no greetings'));
                             }
                         }
                     }
@@ -94,6 +95,7 @@
 
         userStorage.searchUser(userName, password).then((result) => {
             //then은 resolve가 실행된 후에 
+            //이 메소드는 promise를 반환하며, 비동기 작업의 성공 시 then 메소드 내의 콜백함수가 호출됨
             return userStorage.sayHi(result);
         }).then((result) => {
             alert(`인사할게 &{result.userName}님 ${result.greetings}`)
@@ -119,6 +121,11 @@
         //         console.log(error);
         //     }
         // );
+
+        //catch, then은 promise 객체를 사용하여 비동기 작업의 결과를 처리하는 데 사용되는 메소드
+        //then: promise 객체에서 비동기 작업이 성공했을 때 콜백함수를 등록함
+        //catch: promise 객체에서 비동기 작업이 실패했을 때 실행
+        //=> catch 메소드는 에외  처리에 사용 
     </script>
 </body>
 
