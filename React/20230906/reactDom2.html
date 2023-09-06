@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title></title>
 </head>
 
 <body>
@@ -14,8 +14,8 @@
         <a href="https:www.test.com">test site</a>
     </div>
 
-
     <script>
+        //React Vdom의 방법
         const tag = {
             tag: 'div',
             props: {
@@ -23,42 +23,26 @@
                 className: 'container',
             },
             children: [
-                {
-                    tag: 'div',
-                    props: {
-                        id: 'root',
-                        className: 'container',
-                    },
-                    children: [
-                        {
-                            tag: 'div',
-                            props: {
-                                id: 'root',
-                                className: 'container',
-                            },
-                            children: [
 
-                            ]
-                        }
-                    ]
-                }
             ]
         }
 
-
         function helloVdom() {
             return React.createElement(
-                'h1',
-                { className: 'container' },
+                'h1', //첫번째 인자: 만들어야할 요소의 종류
+                { className: 'container' }, //두번째 인자: 프로퍼티를 객체 형태로 전달 
                 'hello',
                 React.createElement(
                     'i',
                     null,
                     'welcome!'
                 )
-            );
+            )
         }
 
+        //JSX의 방법 
+        //이렇게 쓰면 된다! 최종적으로 발전한 방법이다
+        //위 과정을 거쳐서 이렇게까지 발전을 했구나~ 정도로 위의 내용을 알기만 하면 된다
         function helloJSX() {
             return (
                 <h1 className="container">
@@ -66,9 +50,6 @@
                 </h1>
             )
         }
-
-
-
     </script>
 </body>
 
