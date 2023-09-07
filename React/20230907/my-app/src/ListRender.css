@@ -7,10 +7,16 @@
 }
 
 .list-area li+li {
-    border-top: none;
+    border-top:none;
 }
+/* 위 아래 겹쳐서 굵어지는 선들을 제거 */
+
+/* .list-area li:nth-child(2) {
+    background-color: royalblue;
+    color: white;
+} */
 
 .list-area li.visited {
-    color: white;
     background-color: royalblue;
+    color: white;
 }
