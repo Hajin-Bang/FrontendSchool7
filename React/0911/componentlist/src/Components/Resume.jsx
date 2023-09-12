@@ -3,20 +3,17 @@ import React, { useState } from 'react'
 
 
 function Resume(props) {
-
     // let like = 0;
-
-    // console.log('useState:', useState(0));
-    let [like, setLike] = useState("");
+    const [like, setLike] = useState("");
 
     function clickLike() {
         // like += 1;
         // console.log(like)
-        if(like === "") {
-            setLike("like");
-        } else {
-            setLike("");
-        }
+            if (like === "") {
+                setLike("Like")
+            } else {
+                setLike("")
+            }
     }
 
     return (
