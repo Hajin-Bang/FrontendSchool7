@@ -13,9 +13,12 @@ function App() {
         <Route path="/one" element={<One name='licat' />}/>
         <Route path="/two" element={<Two />}/>
         <Route path="/three/*" element={<Outlet />}>
-          <Route path="" element={<HojunIndex/>}/>
-          <Route path="hojunone/" element={<HojunOne/>}/>
-          <Route path="hojuntwo/" element={<HojunTwo/>}/>
+            {/* /three/에 대한 라우트 */}
+            <Route path="" element={<HojunIndex/>}/>
+            {/* /three/hojunone/에 대한 라우트 */}
+            <Route path="hojunone/" element={<HojunOne/>}/>
+            {/* /three/hojuntwo/에 대한 라우트 */}
+            <Route path="hojuntwo/" element={<HojunTwo/>}/>
         </Route>
         <Route path="/blog/:id" element={<Blog />}/>
       </Routes>
@@ -64,6 +67,3 @@ function HojunTwo(){
 }
 
 export default App;
-
-
-//강사님 코드 가져오기 
