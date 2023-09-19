@@ -1,0 +1,242 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+
+#app {
+    font-family: GmarketSansMedium;
+    background-color: #5B2386;
+    color: white;
+    text-align: center;
+    padding-top: 195px;
+
+}
+
+img {
+    vertical-align: top;
+    /* inline일 때 생성되는 위쪽의 공백을 없애주기 위해 */
+    /* 왜 이런 현상이 발생? :  vertical-align 때문에 */
+    width: 100%;
+    /* max-width를 지정함에 따라 반응형이 되도록 하기 위해 */
+}
+
+.a11y-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+}
+
+
+/* CSS 적용 */
+html, body {
+    height: 100%;
+}
+
+body {
+    background: radial-gradient(293.21% 130.49% at 3.59% 5.28%, #F0F4FF 0%, #A5B6EE 100%);
+    background-repeat: no-repeat;
+}
+
+/* header */
+/* .logo .img-logo {
+    width: 244px;
+    height: 40px;
+    position: absolute;
+    left: 50%;
+}  */
+
+
+/* main */
+/* .main .container {
+    width: 400px;
+    height: 360px;
+    margin-top: 60px;
+
+    border-radius: 16px;
+    background: linear-gradient(144deg, #5572BB 2.13%, #374B7C 102.97%);
+    box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.40);
+} */ 
+
+/* header */
+.header {
+    text-align: center; 
+    margin-top: 72px;
+}
+
+.logo .img-logo {
+    width: 244px;
+    height: 40px;
+}
+
+/* main */
+.main {
+    /* text-align: center;  */
+    margin-top: 60px; 
+}
+
+.container {
+    width: 400px;
+    height: 360px;
+    margin: 0 auto; 
+    padding-top: 48px;
+
+    border-radius: 16px;
+    background: linear-gradient(144deg, #5572BB 2.13%, #374B7C 102.97%);
+    box-shadow: 20px 20px 60px 10px rgba(55, 75, 124, 0.40);
+}
+
+
+.container .title {
+    color: #fff;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+
+    position: relative;
+}
+
+.title::after {
+    content: "";
+    background: #3D538A;
+    width: 312px;
+    height: 1px;
+    position: absolute;
+    left: 50%;
+    bottom: -23px;
+    transform: translateX(-50%);
+}
+
+.time {
+    margin-top: 57px;
+}
+
+.container .time {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.container .time div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 98px;
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 12px;
+    font-weight: 700;
+    position: relative;
+}
+
+.container .time div span {
+    width: 80px;
+    height: 80px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: 700;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80' fill='none'%3E%3Cpath d='M0.5 4C0.5 2.067 2.067 0.5 4 0.5H76C77.933 0.5 79.5 2.067 79.5 4V76C79.5 77.933 77.933 79.5 76 79.5H4C2.067 79.5 0.5 77.933 0.5 76V4Z' fill='url(%23paint0_linear_2601_54)' stroke='%23354971'/%3E%3Crect y='39' width='16' height='1' fill='%23354971'/%3E%3Crect x='64' y='39' width='16' height='1' fill='%23354971'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_2601_54' x1='80' y1='80' x2='12.7778' y2='14.4444' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23304577'/%3E%3Cstop offset='1' stop-color='%234C65A0'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+}
+
+.container .time div p {
+    color: #A5B6EE;
+    margin-bottom: 4px;
+}
+
+.main button {
+    width: 112px;
+    height: 48px;
+
+    margin-top: 40px;
+
+    color: #617199;
+    border-radius: 50px;
+    background: #324577;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.05) inset;
+}
+
+.main button svg {
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+}
+
+.start {
+    margin-left: 82px;
+}
+
+.reset {
+    margin-left: 12px;
+}
+
+/* footer */
+.footer p {
+    color: #8596BF;
+    text-align: center;
+    /* Regular_14px */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-weight: 400;
+
+    margin-top: 60px;
+}
