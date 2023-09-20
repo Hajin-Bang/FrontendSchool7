@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>피보나치 수열</title>
+</head>
+<body>
+    <script>
+        function fn(n) {
+            if (n===1 || n===2) {
+                return 1
+            } else {
+                return fn(n - 1) + fn(n - 2)
+            }
+        }
+        // fn(6)
+        // fn(5) + fn(4)
+        // fn(4) + fn(3) + fn(3) + fn(2)
+        // fn(3) + fn(2) + fn(2) + fn(1) + fn(2) + fn(1) + 1
+        // fn(2) + fn(1) + 1 + 1 + 1 + 1 + 1 + 1
+        // 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+        // 8
+
+
+
+        //피보나치 수열을 memoization기법으로 작성해보기
+        const memo = []; //저장소가 필요
+
+        function fnMemo(n) {
+            if (n===1 || n===2) {
+                memo[n] = 1; //저장소에 저장
+                return 1
+            } else if (memo[n] !== undefined) {
+                //memo의 특정 원소에 접근했을 때 언디파인드를 반환하지 않으면 (=값이 있으면) 
+                // => 값이 저장되어있지 않으면 언디파인드 반환 
+                return memo[n]
+                //값이 있다면 저장되어있는 값을 반환
+            } else { //값이 없다면
+                memo[n] = fnMemo(n - 1) + fnMemo(n - 2);
+                return memo[n]
+
+            }
+        }
+
+        //fnMemo(6) ==> 값이 없음 ==> undefined 반환 ==> else로 감 
+            //첫번째 실행됐을 때 memo의 상태 [undefined, undefined, undefined, undefined, undefined, undefined, undefined]
+        //memo[6] = fnMemo(5) + fnMemo(4) ==> 둘 다 undefined ==> else
+            //memo의 상태 [undefined, undefined, undefined, undefined, undefined, undefined, fnMemo(5) + fnMemo(4)]
+        //memo[5] = fnMemo(4) + fnMemo(3) /  memo[4] = fnMemo(3) + fnMemo(2)
+            //memo의 상태 [undefined, undefined, undefined, undefined, fnMemo(3) + fnMemo(2), fnMemo(4) + fnMemo(3), fnMemo(5) + fnMemo(4)]
+        //memo[3] = fnMemo(2) + fnMemo(1) => / memo[2] = 1
+            //memo의 상태 [undefined, undefined, 1, 2, fnMemo(3) + fnMemo(2), fnMemo(4) + fnMemo(3), fnMemo(5) + fnMemo(4)]
+            //[undefined, 1, 1, 2, 3, 5, 8]
+        //메모리에 저장을 해두었다가 참조되어있는 것을 가져오는 형태 
+        //연산 속도가 훨씬 빠르다 
+    </script>
+</body>
+</html>
+
