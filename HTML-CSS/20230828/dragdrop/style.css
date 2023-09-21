@@ -41,7 +41,7 @@ body{
 h1{
   font-weight: normal;
   font-family: 'Neonderthaw', cursive;
-  color:green;
+  color:rgb(66, 133, 66);
   width:min-content;
   line-height: 0.7;
   font-size: 160px;
