@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .one {
-  color: red;
+  color: rgb(0, 238, 255);
 }
 .one .two {
   color: green;
