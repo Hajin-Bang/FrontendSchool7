@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        //간단한 Todo 리스트 구현하기
+        /* 
+            1. Todo 클래스
+            -> 일의 내용, 일의 상태(일이 끝났는지, 아닌지)이 두가지의 프로퍼티를 가진다.
+            -> 일의 상태를 변경하는 메서드가 있다. 
+        */
+        //    class Todo{
+        //     this.itemDesc
+        //     this.finished
+        //     changeStatus() {
+
+        //     }
+        //    }
+
+       /* 
+        2. TodoManager 클래스
+        -> 일의 리스트 프로퍼티 (배열)
+        -> 할 일을 저장하는 메소드(addItem()), 할 일의 목록을 보여주는 메소드(showItem()), 할 일의 남은 개수를 보여주는 메소드  
+        */
+
+        class Todo {
+            constructor(item, finished) {
+                this.item = item;
+                this.finished = false;
+            }
+
+            changeStatus() {
+                this.finished = !this.finished;
+            }
+        }
+
+        class TodoManager {
+            constructor() {
+                this.todoList = [];
+            }
+
+            addItem(item) {
+                const todo = new Todo(item, finished);
+                this.todoList.push(todo);
+            }
+
+            getItems() {
+                return this.todoList
+            }
+
+            getLeftTodoCount() {
+                return this.todoList.filter((item) => item.finished === false).length
+            }
+        }
+    </script>
+</body>
+</html>

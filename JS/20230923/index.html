@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        /**
+         * 왜 객체지향 프로그래밍을 해야할까?
+         * 1. 깔끔하고 이해하기 쉬운 코드를 짤 수 있다.
+         * 2. 확장하기 쉬운 코드를 짤 수 있다.
+         * 3. 유지보수 하기 쉬운 코드를 짤 수 있다.
+         * 4. 메모리를 절약하는 코드를 짤 수 있다.
+         */
+
+        //  let name = "재현"
+        //     weapon = "검"
+
+        // function attack(){
+        //     return `${name}이 ${weapon}으로 공격합니다!`
+        // }
+        
+        // function changeWeapon() {
+        //     weapon = '창';
+        //     return `무기가 ${weapon}으로 교체되었습니다.`;
+        // }
+
+
+        //객체지향적으로 코드를 바꿔보자
+        // const knight = {
+        //     name : "재현",
+        //     weapon : "검",
+        //     attack(){
+        //         return `${this.name}이 ${knight.weapon}으로 공격합니다.`;
+        //     },
+        //     ChangeWeapon(newWeapon) {
+        //         this.weapon = newWeapon;
+        //         return `무기가 ${this.weapon}으로 교체되었습니다.`;
+        //     }
+        // };
+        // encapsulation ==> 캡슐화한다 
+        // 데이터와 데이터를 조작하는 메서드를 하나의 단위로 묶는 것
+        // 위 코드의 문제점은?
+        // 1. 객체가 필요할 때마다 새롭게 선언한다. ==> 생성자 함수 선언
+        // 2, 똑같은 기능을 하는 함수가 반복되고 있다. ==> 프로토타입 사용
+        
+        
+        // 문제점을 해결해보자
+        // 생성자 함수 선언 
+        function knight(name, weapon) {
+            this.name = "재현";
+            this.weapon = "검";
+        }
+
+        Knight.prototype.attack = function () {
+            return `${this.name}이 ${this.weapon}으로 공격합니다!`
+        }
+
+        Knight.prototype.changeWeapon = function (newWeapon) {
+            this.weapon = newWeapon;
+            return `무기가 ${this.weapon}으로 변경되었습니다!`;
+        }
+        //문제점 : 캡슐화가 안된다 
+
+        class BaseCharactor {
+            constructor(name, weapon) {
+                this.name = name;
+                this.weapon = weapon;
+            }
+
+            attack() {
+                return `${this.name}이 ${this.weapon}으로 공격합니다!`;
+            }
+
+            changeWeapon(newWeapon) {
+                this.weapon = newWeapon;
+                return `무기가 ${this.weapon}으로 교체되었습니다.`;
+            }
+        }
+
+        // const knight = new Knight('재현', '검');
+
+        class Skeleton extends BaseCharactor {
+            // constructor(name, weapon, unitType) {
+            //     super(name, weapon);
+            //     this.unitType = unitType;
+            // }
+        }
+
+        const skeleton = new Skeleton("재현", "방패", "악마");
+
+    </script>
+</body>
+</html>
