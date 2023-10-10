@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        let start = Data.now();
+
+        const result = (x) => {
+            console.log(`${x}가 실행되는 데 걸리는 시간: ${Data.now() - start}`)
+        }
+
+        const blocking = () => {
+            let i = 0;
+            while(i < 99999999) {
+                i++
+            }
+            // return 'blocking finished'
+        }
+
+        const asyncBlocking = () => {
+            return new Promise((resolve)=> {
+                blockinng();
+                resolve('asyncBlocking finished');
+            })
+        }
+
+        result('동기적 실행 코드1');
+
+        blocking()
+
+        setTimeout(() => { result('setTimeOust 종료'); }, 0); //result가 먼저 실행된 후에 실행된다
+
+        result('동기적 실행 코드2'); //blocking 때문에 걸리는 시간이 오래걸릴 것
+
+        asyncBlocking().then((txt)=> {
+            result(txt)
+        });
+
+
+        // 메인 쓰레드에 올라와있는 것부터 먼저 실행 ==> 동기적인 코드부터 실행 
+        // 첫번째 result와 두번째 result 실행 (메인쓰레드에 있기 때문)
+        // 이벤트루프가 사이드 스레드에 실행시킬 것이 있나 확인함 
+        // setTimeOut 은 메크로 테스크에, async는 마이크로 테스크에 저장
+        // ==> aysnc가 먼저 실행
+    </script>
+</body>
+</html>
